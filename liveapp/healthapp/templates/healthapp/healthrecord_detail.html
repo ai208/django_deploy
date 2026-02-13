@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>詳細</title>
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'styles.css' %} ">
+</head>
+<body>
+    <div class = "container">
+        <h1>健康記録詳細</h1>
+        <hr>
+        <div class="healthrecord-detail">
+            <div class="healthrecord-date"> {{healthrecord.date}} </div>
+            <div class="healthrecord-date"> {{healthrecord.condition}} </div>
+            <div class="healthrecord-date"> {{healthrecord.mental_status}} </div>
+            <div class="healthrecord-date"> {{healthrecord.weight}} </div>
+            <div class="healthrecord-date"> {{healthrecord.wakeup_time}} </div>
+            <div class="healthrecord-date"> {{healthrecord.bed_time}} </div>
+            <div class="healthrecord-date"> {{healthrecord.sleep_duration}} </div>
+            <div class="healthrecord-date"> {{healthrecord.memo}} </div>
+            <div class = "healthrecord-action">
+                <a href=" {% url "healthrecord_update" healthrecord.id %}" class = 'btn btn-info'>更新</a>
+                <a href=" {% url "healthrecord_list"%}" class = 'btn btn-info'>一覧に戻る</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

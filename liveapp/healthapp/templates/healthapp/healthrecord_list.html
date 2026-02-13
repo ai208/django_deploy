@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一覧</title>
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'healthapp/styles.css' %}">
+</head>
+<body>
+    <div class = "container">
+        <h1>健康記録</h1>
+        <hr>
+        <div class = "action-buttons">
+            <a href=" {% url "healthrecord_create" %}" class="btn btn-primary">新規登録</a>
+        </div>
+        <ul class='healthrecord-list'>
+            {% for healthrecord in healthrecords %}
+                <li>
+                    <div class= "healthrecord-date"> {{healthrecord.date}}</div>
+                    <div class= "healthrecord-memo"> {{healthrecord.memo}} </div>
+                    <div class = "healthrecord-action">
+                        <a href=" {% url "healthrecord_detail" healthrecord.id %}
+                        " class = 'btn btn-info'>詳細</a>
+                        <a href=" {% url "healthrecord_update" healthrecord.id %}
+                        " class = 'btn btn-info'>更新</a>
+                        <a href=" {% url "healthrecord_delete" healthrecord.id %}
+                        " class = 'btn btn-danger'>削除</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>

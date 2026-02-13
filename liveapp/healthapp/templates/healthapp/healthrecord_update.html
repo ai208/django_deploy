@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新</title>
+    {% load static %}
+    <link rel="stylesheet" href=" {% static 'healthapp/styles.css' %}">
+</head>
+<body>
+    <div class = "container">
+        <h1>新規記録</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">更新</button>
+        </form>
+        <br>
+        <div class = "healthrecord-action">
+                <a href=" {% url "healthrecord_list"%}" class = 'btn btn-info'>一覧に戻る</a>
+            </div>
+    </div>
+
+</body>
+</html>
