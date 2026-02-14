@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
-    {% comment %} <a href="{% url "healthapp" %}">健康アプリへ</a> {% endcomment %}
-    <h1>体調の管理アプリ</h1>
-    <p>体調を整えましょう</p>
+    <h1>ログインなしのホーム</h1>
+    <a href=" {% url "login" %} ">ログイン</a>
+    <a href=" {% url "signup" %} ">サインアップ</a>
+    <p>ログインしてください</p>
 
 </body>
 </html>

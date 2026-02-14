@@ -14,3 +14,6 @@ class HealthRecordForm(forms.ModelForm):
             'sleep_duration':'睡眠時間(h)',
             'memo':'メモ',
             }
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
