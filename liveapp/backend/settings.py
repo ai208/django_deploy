@@ -26,11 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-SECRET_KEY = env("SECRET_KEY")
-DEBUG = env.bool("DEBUG", default=False)
-
-
-ALLOWED_HOSTS = []
+# SECRET_KEY = env("SECRET_KEY")
+# DEBUG = env.bool("DEBUG", default=False)
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = ['ai2083.pythonanywhere.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
